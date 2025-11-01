@@ -1,64 +1,51 @@
 ﻿
+//================================================================ Assignment 3 Question 1
 
-//================================================================ Assignment 1
-Console.WriteLine("enter a day number:  ");
-int day = int.Parse(Console.ReadLine());
-switch (day)
+float[] array = { 6, 72, 3.4f, 56, 78, 12, 90 };
+float sum = 0.0f;float avg = sum / array.Length;
+Console.Write("numbers greater than avarage: ");
+for (int i = 0; i < array.Length; i++)
 {
-    case 1:
-        Console.WriteLine("The day is Sunday");
-        break;
-
-    case 2:
-        Console.WriteLine("The day is Monday");
-        break;
-
-    case 3:
-        Console.WriteLine("The day is Tuseday");
-        break;
-
-    case 4:
-        Console.WriteLine("The day is Wednsday");
-        break;
-
-    case 5:
-        Console.WriteLine("The day is Thursday");
-        break;
-
-    case 6:
-        Console.WriteLine("The day is Friday");
-        break;
-
-    case 7:
-        Console.WriteLine("The day is Satarday");
-        break;
-
-    default:
-        Console.WriteLine("The day is out of range. ");
-        break;
-}
-
-
-//================================================================ Assignment 2
-
-Console.WriteLine("enter a month number:  ");
-int dayMonth = int.Parse(Console.ReadLine());
-if (dayMonth >= 1 && dayMonth <= 12)
-{
-    if (dayMonth == 2)
+    sum+= array[i];
+    if (i == array.Length - 1)
     {
-        Console.WriteLine("number days in this month is 28 or 29");
-    }
-    else if (dayMonth == 4 || dayMonth == 6 || dayMonth == 9 || dayMonth == 11)
-    {
-        Console.WriteLine("number days in this month is 30");
-    }
-    else
-    {
-        Console.WriteLine("number days in this month is 31");
+        foreach (float f in array) 
+            if (f > avg) Console.Write(f+", ");
     }
 }
-else
+Console.WriteLine();
+//================================================================ Assignment 3 Question 2
+
+Console.Write("Enter the Array size : ");
+int arraySize = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Enter the Array elements : ");
+double[] array2 = new double[arraySize];
+
+for (int i = 0; i < array2.Length; i++)
+
+   array2[i] = Convert.ToDouble(Console.ReadLine());
+
+Console.Write("Array elements in reverse order: ");
+for (int i = array2.Length - 1 ; i >= 0 ; i--)
+   
+    Console.Write(array2[i]+", ");
+
+Console.WriteLine();
+//================================================================ Assignment 3 Question 2
+
+string str = "hello its a repeater ";
+Dictionary<char, int> dict = new Dictionary<char, int>();
+
+Console.Write("letters doesnt repeated: ");
+foreach (char c in str)
 {
-    Console.WriteLine("out of range of months 1 to 12");
+    if (dict.ContainsKey(c)) dict[c]++;
+
+    else dict.Add(c, 1);
+}
+
+foreach (var d in dict)
+{
+    if (d.Value == 1) Console.Write(d.Key + " ");
 }
